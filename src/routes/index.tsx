@@ -87,9 +87,9 @@ function Landing() {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* Nav */}
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-background/60 border-b border-border/40">
-        <div className="mx-auto max-w-7xl px-6 h-20 flex items-center justify-between">
+        <div className="mx-auto max-w-7xl px-6 h-28 md:h-32 flex items-center justify-between">
           <a href="#top" className="flex items-center gap-3">
-            <img src={logoRocha} alt="Agência Rocha" className="h-12 w-auto" width={96} height={96} />
+            <img src={logoRocha} alt="Agência Rocha" className="h-20 md:h-24 w-auto" width={192} height={192} />
           </a>
           <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
             <a href="#servicos" className="hover:text-foreground transition">Serviços</a>
@@ -297,7 +297,7 @@ function Landing() {
       {/* Footer */}
       <footer className="border-t border-border py-10">
         <div className="mx-auto max-w-7xl px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <img src={logoRocha} alt="Agência Rocha" className="h-10 w-auto" width={80} height={80} loading="lazy" />
+          <img src={logoRocha} alt="Agência Rocha" className="h-16 w-auto" width={128} height={128} loading="lazy" />
           <p>© {new Date().getFullYear()} Agência Rocha. Marketing digital e automação.</p>
         </div>
       </footer>
