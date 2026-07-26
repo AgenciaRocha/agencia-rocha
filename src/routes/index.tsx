@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroBg from "@/assets/hero-bg.jpg";
 import logoRocha from "@/assets/logo-rocha.png";
+import bannerFounder from "@/assets/banner-founder.webp.asset.json";
 import {
   Megaphone,
   MapPin,
@@ -119,51 +120,76 @@ function Landing() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/70 to-background pointer-events-none" />
         <div className="relative mx-auto max-w-7xl px-6">
-          <div className="max-w-3xl animate-float-up">
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-ember animate-pulse" />
-              Marketing digital com foco em resultado
-            </span>
-            <h1 className="mt-6 text-5xl md:text-7xl font-bold leading-[1.05]">
-              Cresça de verdade{" "}
-              <span className="text-gradient-ember">no digital.</span>
-            </h1>
-            <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl">
-              Somos especialistas em <strong className="text-foreground font-semibold">tráfego pago</strong>,{" "}
-              <strong className="text-foreground font-semibold">automação</strong> e{" "}
-              <strong className="text-foreground font-semibold">IA no WhatsApp</strong> para empresas
-              que querem escalar com previsibilidade.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-3">
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-ember px-6 py-3 text-base font-semibold text-primary-foreground shadow-ember hover:opacity-90 transition"
-              >
-                <MessageCircle className="h-5 w-5" />
-                Solicitar diagnóstico gratuito
-              </a>
-              <a
-                href="#servicos"
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-6 py-3 text-base font-semibold text-foreground backdrop-blur hover:bg-card transition"
-              >
-                Ver serviços
-              </a>
+          <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr] items-center">
+            <div className="animate-float-up">
+              <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur">
+                <span className="h-1.5 w-1.5 rounded-full bg-ember animate-pulse" />
+                Marketing digital com foco em resultado
+              </span>
+              <h1 className="mt-6 text-5xl md:text-7xl font-bold leading-[1.05]">
+                Cresça de verdade{" "}
+                <span className="text-gradient-ember">no digital.</span>
+              </h1>
+              <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl">
+                Somos especialistas em <strong className="text-foreground font-semibold">tráfego pago</strong>,{" "}
+                <strong className="text-foreground font-semibold">automação</strong> e{" "}
+                <strong className="text-foreground font-semibold">IA no WhatsApp</strong> para empresas
+                que querem escalar com previsibilidade.
+              </p>
+              <div className="mt-10 flex flex-wrap gap-3">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-gradient-ember px-6 py-3 text-base font-semibold text-primary-foreground shadow-ember hover:opacity-90 transition"
+                >
+                  <MessageCircle className="h-5 w-5" />
+                  Solicitar diagnóstico gratuito
+                </a>
+                <a
+                  href="#servicos"
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-6 py-3 text-base font-semibold text-foreground backdrop-blur hover:bg-card transition"
+                >
+                  Ver serviços
+                </a>
+              </div>
+
+              <dl className="mt-14 grid grid-cols-3 gap-6 max-w-lg">
+                {[
+                  { k: "+300%", v: "ROAS médio" },
+                  { k: "24/7", v: "Atendimento com IA" },
+                  { k: "100%", v: "Foco em resultado" },
+                ].map((s) => (
+                  <div key={s.v}>
+                    <dt className="font-display text-3xl md:text-4xl font-bold text-gradient-ember">{s.k}</dt>
+                    <dd className="mt-1 text-xs text-muted-foreground">{s.v}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
 
-            <dl className="mt-14 grid grid-cols-3 gap-6 max-w-lg">
-              {[
-                { k: "+300%", v: "ROAS médio" },
-                { k: "24/7", v: "Atendimento com IA" },
-                { k: "100%", v: "Foco em resultado" },
-              ].map((s) => (
-                <div key={s.v}>
-                  <dt className="font-display text-3xl md:text-4xl font-bold text-gradient-ember">{s.k}</dt>
-                  <dd className="mt-1 text-xs text-muted-foreground">{s.v}</dd>
+            <div className="relative animate-float-up order-first lg:order-last">
+              <div className="absolute -inset-4 rounded-[2rem] bg-gradient-ember opacity-30 blur-3xl" />
+              <div className="relative overflow-hidden rounded-[2rem] border border-border shadow-ember">
+                <img
+                  src={bannerFounder.url}
+                  alt="Fundador da Agência Rocha"
+                  width={1080}
+                  height={1080}
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between">
+                  <div>
+                    <p className="text-xs uppercase tracking-widest text-ember font-semibold">Fundador</p>
+                    <p className="font-display font-semibold text-foreground">Agência Rocha</p>
+                  </div>
+                  <span className="rounded-full bg-gradient-ember px-3 py-1 text-xs font-bold text-primary-foreground shadow-ember">
+                    Especialistas
+                  </span>
                 </div>
-              ))}
-            </dl>
+              </div>
+            </div>
           </div>
         </div>
       </section>
