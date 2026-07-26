@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroBg from "@/assets/hero-bg.jpg";
+import logoRocha from "@/assets/logo-rocha.png";
 import {
   Megaphone,
   MapPin,
@@ -10,7 +11,6 @@ import {
   Bot,
   ArrowRight,
   Check,
-  Sparkles,
   MessageCircle,
 } from "lucide-react";
 
@@ -87,12 +87,9 @@ function Landing() {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* Nav */}
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-background/60 border-b border-border/40">
-        <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
-          <a href="#top" className="flex items-center gap-2 font-display font-bold text-lg">
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-ember shadow-ember">
-              <Sparkles className="h-4 w-4 text-primary-foreground" />
-            </span>
-            Agência Rocha
+        <div className="mx-auto max-w-7xl px-6 h-20 flex items-center justify-between">
+          <a href="#top" className="flex items-center gap-3">
+            <img src={logoRocha} alt="Agência Rocha" className="h-12 w-auto" width={96} height={96} />
           </a>
           <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
             <a href="#servicos" className="hover:text-foreground transition">Serviços</a>
@@ -300,12 +297,7 @@ function Landing() {
       {/* Footer */}
       <footer className="border-t border-border py-10">
         <div className="mx-auto max-w-7xl px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <div className="flex items-center gap-2 font-display font-semibold text-foreground">
-            <span className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-gradient-ember">
-              <Sparkles className="h-3 w-3 text-primary-foreground" />
-            </span>
-            Agência Rocha
-          </div>
+          <img src={logoRocha} alt="Agência Rocha" className="h-10 w-auto" width={80} height={80} loading="lazy" />
           <p>© {new Date().getFullYear()} Agência Rocha. Marketing digital e automação.</p>
         </div>
       </footer>
