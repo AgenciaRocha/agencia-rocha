@@ -1,7 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import heroBg from "@/assets/hero-bg.jpg";
-import logoRocha from "@/assets/logo-rocha.png";
-import bannerFounder from "@/assets/banner-founder.webp.asset.json";
 import {
   Megaphone,
   MapPin,
@@ -10,16 +7,63 @@ import {
   Palette,
   PenLine,
   Bot,
-  ArrowRight,
   Check,
-  MessageCircle,
+  ShieldCheck,
+  Target,
+  Users,
+  Rocket,
+  LineChart,
 } from "lucide-react";
+
+import logoAgr from "@/assets/logo-agr.jpg.asset.json";
+import bannerDesktop from "@/assets/banner-desktop.png.asset.json";
+import bannerMobile from "@/assets/banner-mobile.png.asset.json";
+import { site } from "@/config/site";
+import { WhatsAppButton, ScheduleButton, GhostButton } from "@/components/cta-buttons";
+import { InstagramLink } from "@/components/instagram-link";
+
+const TITLE = "Agência Rocha — Tráfego Pago, Google Ads e Meta Ads que Vendem";
+const DESCRIPTION =
+  "Atraia mais clientes e aumente suas vendas com gestão profissional de tráfego pago, Google Meu Negócio, landing pages e IA no WhatsApp. Agende uma consultoria gratuita.";
 
 export const Route = createFileRoute("/")({
   component: Landing,
+  head: () => ({
+    meta: [
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://agencia-rocha.lovable.app/" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "https://agencia-rocha.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          name: site.name,
+          description: DESCRIPTION,
+          url: "https://agencia-rocha.lovable.app/",
+          sameAs: [site.instagramUrl],
+          areaServed: "BR",
+        }),
+      },
+    ],
+  }),
 });
 
-const WHATSAPP_URL = "https://wa.me/?text=Olá!%20Quero%20conhecer%20os%20serviços%20da%20Agência%20Rocha";
+const pillars = [
+  { icon: Target, label: "Estratégias personalizadas" },
+  { icon: Users, label: "Mais leads qualificados" },
+  { icon: LineChart, label: "Relatórios transparentes" },
+  { icon: Rocket, label: "Otimização contínua" },
+];
+
+const platforms = ["Google Ads", "Meta Ads", "YouTube Ads", "Google Analytics 4", "Google Tag Manager"];
 
 const services = [
   {
@@ -33,9 +77,9 @@ const services = [
   {
     icon: MapPin,
     title: "Google Meu Negócio",
-    tagline: "SEO Local no topo do Maps",
+    tagline: "SEO local no topo do Maps",
     description:
-      "Criação, configuração e otimização da sua conta para que o cliente encontre você primeiro quando estiver procurando na sua região.",
+      "Criação, configuração e otimização do seu perfil para que o cliente encontre você primeiro na sua região.",
     highlights: ["Criação e verificação", "Otimização SEO local", "Ranking no Maps"],
   },
   {
@@ -43,7 +87,7 @@ const services = [
     title: "Rastreamento GTM + GA4",
     tagline: "Dados que otimizam campanhas",
     description:
-      "Instalação completa do Pixel do Meta e TAGs do Google via GTM, com públicos de remarketing para turbinar seus anúncios.",
+      "Instalação completa do Pixel da Meta e tags do Google via GTM, com públicos de remarketing para turbinar seus anúncios.",
     highlights: ["Pixel Meta", "GA4 + GTM", "Remarketing"],
   },
   {
@@ -72,6 +116,24 @@ const services = [
   },
 ];
 
+const steps = [
+  {
+    step: "01",
+    title: "Diagnóstico gratuito",
+    text: "Analisamos seu negócio, seu público e o que já foi feito em mídia paga para encontrar as oportunidades reais.",
+  },
+  {
+    step: "02",
+    title: "Estratégia e estrutura",
+    text: "Montamos campanhas, criativos, copy, rastreamento e páginas de conversão alinhados à sua meta de vendas.",
+  },
+  {
+    step: "03",
+    title: "Otimização e escala",
+    text: "Acompanhamos os números de perto, cortamos o que não performa e escalamos o que traz retorno.",
+  },
+];
+
 const aiFeatures = [
   "Atendimento automatizado 24h",
   "Organização de pedidos e clientes",
@@ -79,153 +141,155 @@ const aiFeatures = [
   "Encaminhamento para atendentes humanos",
   "Painel operacional em tempo real",
   "Histórico completo das conversas",
-  "Relatórios e acompanhamento da operação",
+  "Relatórios da operação",
   "Integração com processos comerciais",
+];
+
+const faqs = [
+  {
+    q: "Qual o investimento mínimo em anúncios?",
+    a: "Definimos junto com você no diagnóstico. O importante é que a verba seja suficiente para gerar dados e otimizar as campanhas com consistência.",
+  },
+  {
+    q: "Em quanto tempo vejo resultado?",
+    a: "As primeiras oportunidades geralmente aparecem nos primeiros dias. A partir do primeiro mês temos dados suficientes para otimizar e escalar.",
+  },
+  {
+    q: "Vocês atendem meu segmento?",
+    a: "Atendemos negócios locais, serviços, e-commerces e infoprodutos. No diagnóstico avaliamos se faz sentido para o seu caso.",
+  },
 ];
 
 function Landing() {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      {/* Nav */}
-      <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-background/60 border-b border-border/40">
-        <div className="mx-auto max-w-7xl px-6 h-28 md:h-32 flex items-center justify-between">
-          <a href="#top" className="flex items-center gap-3">
-            <img src={logoRocha} alt="Agência Rocha" className="h-20 md:h-24 w-auto" width={192} height={192} />
+    <div className="min-h-screen overflow-x-hidden bg-background text-foreground">
+      {/* Header */}
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-border/40 bg-background/75 backdrop-blur-xl">
+        <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3 md:px-6">
+          <a href="#top" className="flex min-w-0 items-center gap-3" aria-label={site.name}>
+            <img
+              src={logoAgr.url}
+              alt={`${site.name} — logo`}
+              width={128}
+              height={128}
+              className="h-12 w-12 shrink-0 rounded-xl object-cover md:h-14 md:w-14"
+            />
+            <span className="min-w-0">
+              <span className="block truncate font-display text-base font-bold md:text-lg">
+                Agência Rocha
+              </span>
+              <span className="block truncate text-[10px] uppercase tracking-[0.18em] text-muted-foreground md:text-xs">
+                {site.tagline}
+              </span>
+            </span>
           </a>
-          <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
-            <a href="#servicos" className="hover:text-foreground transition">Serviços</a>
-            <a href="#ia" className="hover:text-foreground transition">IA no WhatsApp</a>
-            <a href="#contato" className="hover:text-foreground transition">Contato</a>
-          </nav>
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-gradient-ember px-4 py-2 text-sm font-semibold text-primary-foreground shadow-ember hover:opacity-90 transition"
-          >
-            Falar no WhatsApp
-            <ArrowRight className="h-4 w-4" />
-          </a>
+
+          <div className="flex items-center gap-2 md:gap-4">
+            <nav className="hidden items-center gap-7 text-sm text-muted-foreground lg:flex">
+              <a href="#servicos" className="transition hover:text-foreground">Serviços</a>
+              <a href="#processo" className="transition hover:text-foreground">Como funciona</a>
+              <a href="#ia" className="transition hover:text-foreground">IA no WhatsApp</a>
+              <a href="#faq" className="transition hover:text-foreground">Dúvidas</a>
+            </nav>
+            <InstagramLink className="px-2.5" />
+            <ScheduleButton size="md" className="hidden sm:inline-flex">
+              Agendar
+            </ScheduleButton>
+          </div>
         </div>
       </header>
 
       {/* Hero */}
-      <section id="top" className="relative pt-32 pb-24 md:pt-40 md:pb-32">
-        <img
-          src={heroBg}
-          alt=""
-          width={1920}
-          height={1080}
-          className="absolute inset-0 h-full w-full object-cover opacity-40 pointer-events-none"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/70 to-background pointer-events-none" />
-        <div className="relative mx-auto max-w-7xl px-6">
-          <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr] items-center">
-            <div className="animate-float-up">
-              <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur">
-                <span className="h-1.5 w-1.5 rounded-full bg-ember animate-pulse" />
-                Marketing digital com foco em resultado
-              </span>
-              <h1 className="mt-6 text-5xl md:text-7xl font-bold leading-[1.05]">
-                Cresça de verdade{" "}
-                <span className="text-gradient-ember">no digital.</span>
-              </h1>
-              <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl">
-                Somos especialistas em <strong className="text-foreground font-semibold">tráfego pago</strong>,{" "}
-                <strong className="text-foreground font-semibold">automação</strong> e{" "}
-                <strong className="text-foreground font-semibold">IA no WhatsApp</strong> para empresas
-                que querem escalar com previsibilidade.
-              </p>
-              <div className="mt-10 flex flex-wrap gap-3">
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-gradient-ember px-6 py-3 text-base font-semibold text-primary-foreground shadow-ember hover:opacity-90 transition"
-                >
-                  <MessageCircle className="h-5 w-5" />
-                  Solicitar diagnóstico gratuito
-                </a>
-                <a
-                  href="#servicos"
-                  className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-6 py-3 text-base font-semibold text-foreground backdrop-blur hover:bg-card transition"
-                >
-                  Ver serviços
-                </a>
-              </div>
+      <section id="top" className="relative overflow-hidden pt-24 md:pt-28">
+        <div className="pointer-events-none absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
 
-              <dl className="mt-14 grid grid-cols-3 gap-6 max-w-lg">
-                {[
-                  { k: "+300%", v: "ROAS médio" },
-                  { k: "24/7", v: "Atendimento com IA" },
-                  { k: "100%", v: "Foco em resultado" },
-                ].map((s) => (
-                  <div key={s.v}>
-                    <dt className="font-display text-3xl md:text-4xl font-bold text-gradient-ember">{s.k}</dt>
-                    <dd className="mt-1 text-xs text-muted-foreground">{s.v}</dd>
-                  </div>
-                ))}
-              </dl>
+        <div className="relative mx-auto max-w-7xl px-5 md:px-6">
+          <picture>
+            <source media="(min-width: 768px)" srcSet={bannerDesktop.url} />
+            <img
+              src={bannerMobile.url}
+              alt="Agência Rocha — especialistas em Google Ads, Meta Ads e YouTube Ads"
+              width={1717}
+              height={919}
+              className="w-full rounded-3xl border border-border/60 shadow-glow"
+            />
+          </picture>
+
+          <div className="mt-8 animate-float-up md:mt-10">
+            <h1 className="text-3xl font-bold leading-[1.08] sm:text-4xl md:text-6xl">
+              Atraia mais clientes e aumente suas vendas{" "}
+              <span className="text-gradient-brand">com tráfego pago que realmente funciona.</span>
+            </h1>
+            <p className="mt-5 max-w-3xl text-base text-muted-foreground md:text-lg">
+              Planejamento, gestão e otimização de campanhas para gerar{" "}
+              <strong className="font-semibold text-foreground">mais leads, mais vendas</strong> e{" "}
+              <strong className="font-semibold text-foreground">maior retorno</strong> sobre o investimento.
+            </p>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <ScheduleButton className="w-full sm:w-auto" />
+              <WhatsAppButton className="w-full sm:w-auto" />
+              <GhostButton href="#servicos" className="w-full sm:w-auto">Ver serviços</GhostButton>
             </div>
 
-            <div className="relative animate-float-up order-first lg:order-last">
-              <div className="absolute -inset-4 rounded-[2rem] bg-gradient-ember opacity-30 blur-3xl" />
-              <div className="relative overflow-hidden rounded-[2rem] border border-border shadow-ember">
-                <img
-                  src={bannerFounder.url}
-                  alt="Fundador da Agência Rocha"
-                  width={1080}
-                  height={1080}
-                  className="h-full w-full object-cover"
-                />
-                <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background via-background/40 to-transparent" />
-                <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between">
-                  <div>
-                    <p className="text-xs uppercase tracking-widest text-ember font-semibold">Fundador</p>
-                    <p className="font-display font-semibold text-foreground">Agência Rocha</p>
-                  </div>
-                  <span className="rounded-full bg-gradient-ember px-3 py-1 text-xs font-bold text-primary-foreground shadow-ember">
-                    Especialistas
-                  </span>
-                </div>
-              </div>
+            <ul className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
+              {pillars.map((p) => (
+                <li
+                  key={p.label}
+                  className="flex items-start gap-3 rounded-2xl border border-border/60 bg-card/50 p-4 backdrop-blur"
+                >
+                  <p.icon className="h-5 w-5 shrink-0 text-brand-soft" />
+                  <span className="min-w-0 text-sm font-medium">{p.label}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 rounded-2xl border border-border/50 bg-card/40 px-5 py-4 text-xs text-muted-foreground">
+              <span className="inline-flex items-center gap-2 font-semibold uppercase tracking-widest text-brand-soft">
+                <ShieldCheck className="h-4 w-4" />
+                Tecnologia e dados
+              </span>
+              {platforms.map((p) => (
+                <span key={p}>{p}</span>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* Services */}
-      <section id="servicos" className="relative py-24 md:py-32">
-        <div className="mx-auto max-w-7xl px-6">
+      <section id="servicos" className="py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-5 md:px-6">
           <div className="max-w-2xl">
-            <span className="text-sm font-semibold text-ember uppercase tracking-widest">Nossos serviços</span>
-            <h2 className="mt-3 text-4xl md:text-5xl font-bold">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-soft">
+              Nossos serviços
+            </span>
+            <h2 className="mt-3 text-3xl font-bold md:text-5xl">
               Uma operação completa para escalar suas vendas.
             </h2>
-            <p className="mt-4 text-muted-foreground text-lg">
+            <p className="mt-4 text-muted-foreground md:text-lg">
               Estratégia, mídia, criativos e automação integrados. Você foca no seu negócio, a gente cuida do resto.
             </p>
           </div>
 
-          <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((s, i) => (
+          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {services.map((s) => (
               <article
                 key={s.title}
-                className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 transition hover:border-ember/60 hover:shadow-ember"
-                style={{ animationDelay: `${i * 60}ms` }}
+                className="group relative overflow-hidden rounded-2xl border border-border bg-card p-7 transition hover:-translate-y-1 hover:border-brand-soft/60 hover:shadow-brand"
               >
-                <div className="absolute -top-24 -right-24 h-48 w-48 rounded-full bg-gradient-ember opacity-0 blur-3xl transition group-hover:opacity-20" />
+                <div className="pointer-events-none absolute -right-24 -top-24 h-48 w-48 rounded-full bg-gradient-brand opacity-0 blur-3xl transition group-hover:opacity-25" />
                 <div className="relative">
-                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-ember shadow-ember">
-                    <s.icon className="h-6 w-6 text-primary-foreground" />
+                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-brand shadow-brand">
+                    <s.icon className="h-6 w-6 text-brand-foreground" />
                   </div>
-                  <h3 className="mt-6 text-xl font-semibold">{s.title}</h3>
-                  <p className="mt-1 text-sm text-ember font-medium">{s.tagline}</p>
-                  <p className="mt-4 text-muted-foreground text-sm leading-relaxed">{s.description}</p>
-                  <ul className="mt-6 space-y-2">
+                  <h3 className="mt-6 text-lg font-semibold">{s.title}</h3>
+                  <p className="mt-1 text-sm font-medium text-brand-soft">{s.tagline}</p>
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{s.description}</p>
+                  <ul className="mt-5 space-y-2">
                     {s.highlights.map((h) => (
                       <li key={h} className="flex items-center gap-2 text-sm text-foreground/90">
-                        <Check className="h-4 w-4 text-ember" />
+                        <Check className="h-4 w-4 shrink-0 text-brand-soft" />
                         {h}
                       </li>
                     ))}
@@ -234,56 +298,73 @@ function Landing() {
               </article>
             ))}
           </div>
+
+          <div className="mt-12 flex flex-col gap-3 sm:flex-row">
+            <ScheduleButton className="w-full sm:w-auto">Quero uma estratégia para meu negócio</ScheduleButton>
+            <WhatsAppButton size="md" className="w-full sm:w-auto">Tirar dúvidas no WhatsApp</WhatsAppButton>
+          </div>
         </div>
       </section>
 
-      {/* AI WhatsApp — featured */}
-      <section id="ia" className="relative py-24 md:py-32">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
+      {/* Process */}
+      <section id="processo" className="border-y border-border/50 bg-card/30 py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-5 md:px-6">
+          <div className="max-w-2xl">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-soft">
+              Como funciona
+            </span>
+            <h2 className="mt-3 text-3xl font-bold md:text-5xl">Do diagnóstico à escala em 3 etapas.</h2>
+          </div>
+          <ol className="mt-12 grid gap-5 md:grid-cols-3">
+            {steps.map((s) => (
+              <li key={s.step} className="rounded-2xl border border-border bg-background/60 p-7">
+                <span className="font-display text-4xl font-bold text-gradient-brand">{s.step}</span>
+                <h3 className="mt-4 text-lg font-semibold">{s.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.text}</p>
+              </li>
+            ))}
+          </ol>
         </div>
-        <div className="relative mx-auto max-w-7xl px-6">
-          <div className="grid gap-12 lg:grid-cols-2 items-center">
+      </section>
+
+      {/* AI WhatsApp */}
+      <section id="ia" className="py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-5 md:px-6">
+          <div className="grid items-center gap-10 lg:grid-cols-2">
             <div>
-              <span className="inline-flex items-center gap-2 rounded-full border border-ember/40 bg-ember/10 px-3 py-1 text-xs font-semibold text-ember uppercase tracking-widest">
+              <span className="inline-flex items-center gap-2 rounded-full border border-brand-soft/40 bg-brand/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-brand-soft">
                 <Bot className="h-3.5 w-3.5" />
                 Novo · IA
               </span>
-              <h2 className="mt-4 text-4xl md:text-5xl font-bold leading-[1.1]">
-                Assistente de <span className="text-gradient-ember">IA para WhatsApp</span>
+              <h2 className="mt-4 text-3xl font-bold leading-[1.12] md:text-5xl">
+                Assistente de <span className="text-gradient-brand">IA para WhatsApp</span>
               </h2>
-              <p className="mt-5 text-lg text-muted-foreground">
+              <p className="mt-5 text-muted-foreground md:text-lg">
                 Transformamos o WhatsApp da sua empresa em uma central completa de{" "}
-                <strong className="text-foreground font-semibold">atendimento, vendas e relacionamento</strong>.
-                Tudo personalizado para a realidade do seu negócio, usando o WhatsApp Oficial.
+                <strong className="font-semibold text-foreground">atendimento, vendas e relacionamento</strong>,
+                tudo personalizado para a sua operação e usando o WhatsApp Oficial.
               </p>
               <p className="mt-4 text-muted-foreground">
                 <strong className="text-foreground">Resultado:</strong> menos tempo em tarefas repetitivas, mais
-                controle da operação e equipe focada no que realmente gera resultado.
+                controle da operação e equipe focada no que gera receita.
               </p>
-
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-ember px-6 py-3 text-base font-semibold text-primary-foreground shadow-ember hover:opacity-90 transition"
-              >
-                <MessageCircle className="h-5 w-5" />
-                Quero automatizar meu WhatsApp
-              </a>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <WhatsAppButton className="w-full sm:w-auto">Quero automatizar meu WhatsApp</WhatsAppButton>
+                <ScheduleButton size="md" className="w-full sm:w-auto">Agendar demonstração</ScheduleButton>
+              </div>
             </div>
 
-            <div className="relative rounded-3xl border border-border bg-card/80 p-8 backdrop-blur shadow-glow">
-              <div className="absolute -top-3 -right-3 rounded-full bg-gradient-ember px-3 py-1 text-xs font-bold text-primary-foreground shadow-ember">
+            <div className="relative rounded-3xl border border-border bg-card/80 p-6 backdrop-blur shadow-glow md:p-8">
+              <div className="absolute -right-3 -top-3 rounded-full bg-gradient-brand px-3 py-1 text-xs font-bold text-brand-foreground shadow-brand">
                 WhatsApp Oficial
               </div>
               <ul className="grid gap-3 sm:grid-cols-2">
                 {aiFeatures.map((f) => (
                   <li key={f} className="flex items-start gap-3 rounded-xl bg-secondary/60 p-4 text-sm">
-                    <span className="mt-0.5 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-gradient-ember">
-                      <Check className="h-3 w-3 text-primary-foreground" />
+                    <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gradient-brand">
+                      <Check className="h-3 w-3 text-brand-foreground" />
                     </span>
-                    <span className="text-foreground/90">{f}</span>
+                    <span className="min-w-0 text-foreground/90">{f}</span>
                   </li>
                 ))}
               </ul>
@@ -292,29 +373,43 @@ function Landing() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section id="contato" className="relative py-24 md:py-32">
-        <div className="mx-auto max-w-5xl px-6">
-          <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-10 md:p-16 text-center">
-            <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-64 w-[80%] rounded-full bg-gradient-ember opacity-25 blur-3xl" />
+      {/* FAQ */}
+      <section id="faq" className="border-t border-border/50 py-20 md:py-28">
+        <div className="mx-auto max-w-4xl px-5 md:px-6">
+          <h2 className="text-3xl font-bold md:text-4xl">Perguntas frequentes</h2>
+          <div className="mt-8 divide-y divide-border/60 overflow-hidden rounded-2xl border border-border bg-card">
+            {faqs.map((f) => (
+              <details key={f.q} className="group p-6">
+                <summary className="cursor-pointer list-none font-semibold marker:hidden">
+                  <span className="flex items-start justify-between gap-4">
+                    {f.q}
+                    <span className="text-brand-soft transition group-open:rotate-45">+</span>
+                  </span>
+                </summary>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section id="contato" className="py-20 md:py-28">
+        <div className="mx-auto max-w-5xl px-5 md:px-6">
+          <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-8 text-center md:p-16">
+            <div className="pointer-events-none absolute -top-32 left-1/2 h-64 w-[80%] -translate-x-1/2 rounded-full bg-gradient-brand opacity-25 blur-3xl" />
             <div className="relative">
-              <h2 className="text-4xl md:text-6xl font-bold leading-[1.05]">
-                Pronto para <span className="text-gradient-ember">escalar</span> de verdade?
+              <h2 className="text-3xl font-bold leading-[1.08] md:text-5xl">
+                Pronto para <span className="text-gradient-brand">escalar</span> de verdade?
               </h2>
-              <p className="mt-5 text-muted-foreground text-lg max-w-2xl mx-auto">
-                Fale com nosso time e receba um diagnóstico gratuito da sua operação digital.
+              <p className="mx-auto mt-5 max-w-2xl text-muted-foreground md:text-lg">
+                Agende uma consultoria gratuita e receba um diagnóstico da sua operação digital.
                 Sem enrolação — só o que vai gerar resultado.
               </p>
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-10 inline-flex items-center gap-2 rounded-full bg-gradient-ember px-8 py-4 text-lg font-semibold text-primary-foreground shadow-ember hover:opacity-90 transition"
-              >
-                <MessageCircle className="h-5 w-5" />
-                Falar com um especialista
-                <ArrowRight className="h-5 w-5" />
-              </a>
+              <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                <ScheduleButton className="w-full sm:w-auto" />
+                <WhatsAppButton className="w-full sm:w-auto" />
+              </div>
             </div>
           </div>
         </div>
@@ -322,9 +417,28 @@ function Landing() {
 
       {/* Footer */}
       <footer className="border-t border-border py-10">
-        <div className="mx-auto max-w-7xl px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <img src={logoRocha} alt="Agência Rocha" className="h-16 w-auto" width={128} height={128} loading="lazy" />
-          <p>© {new Date().getFullYear()} Agência Rocha. Marketing digital e automação.</p>
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-5 text-sm text-muted-foreground md:flex-row md:justify-between md:px-6">
+          <div className="flex min-w-0 items-center gap-3">
+            <img
+              src={logoAgr.url}
+              alt={`${site.name} — logo`}
+              width={96}
+              height={96}
+              loading="lazy"
+              className="h-12 w-12 shrink-0 rounded-xl object-cover"
+            />
+            <div className="min-w-0">
+              <p className="font-display font-semibold text-foreground">{site.name}</p>
+              <p className="text-xs uppercase tracking-[0.18em]">{site.tagline}</p>
+            </div>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <InstagramLink withLabel />
+            <ScheduleButton size="md">Agendar</ScheduleButton>
+          </div>
+          <p className="text-center text-xs md:text-right">
+            © {new Date().getFullYear()} {site.name}. Marketing digital e automação.
+          </p>
         </div>
       </footer>
     </div>
