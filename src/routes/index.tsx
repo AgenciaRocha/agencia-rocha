@@ -227,8 +227,8 @@ function Landing() {
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <WhatsAppButton className="w-full sm:w-auto" />
-              <ScheduleButton className="w-full sm:w-auto" />
+              <WhatsAppButton className="animate-pulse-whatsapp hover:animate-none w-full sm:w-auto" />
+              <ScheduleButton className="animate-pulse-brand hover:animate-none w-full sm:w-auto" />
             </div>
 
             <ul className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
