@@ -29,7 +29,7 @@ export function WhatsAppButton({
       className={cn(
         base,
         sizes[size],
-        "bg-gradient-whatsapp text-whatsapp-foreground shadow-whatsapp animate-pulse-whatsapp hover:animate-none",
+        "bg-gradient-whatsapp text-whatsapp-foreground shadow-whatsapp",
         className,
       )}
     >
