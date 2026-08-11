@@ -56,7 +56,7 @@ export function ScheduleButton({
       className={cn(
         base,
         sizes[size],
-        "bg-gradient-brand text-brand-foreground shadow-brand animate-pulse-brand hover:animate-none",
+        "bg-gradient-brand text-brand-foreground shadow-brand",
         className,
       )}
     >
