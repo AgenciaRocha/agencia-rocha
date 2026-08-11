@@ -204,42 +204,42 @@ function Landing() {
         <div className="pointer-events-none absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
 
         <div className="relative mx-auto max-w-7xl px-5 md:px-6">
-          <picture>
-            <source media="(min-width: 768px)" srcSet={bannerDesktop.url} />
-            <img
-              src={bannerMobile.url}
-              alt="Agência Rocha — especialistas em Google Ads, Meta Ads e YouTube Ads"
-              width={1717}
-              height={919}
-              className="w-full rounded-3xl border border-border/60 shadow-glow"
-            />
-          </picture>
+        <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap md:mb-8">
+          <WhatsAppButton
+            subtitle="Atendimento rápido"
+            className="animate-pulse-whatsapp hover:animate-none w-full sm:w-auto"
+          >
+            FALAR NO WHATSAPP
+          </WhatsAppButton>
+          <ScheduleButton
+            subtitle="Gratuita e sem compromisso"
+            className="animate-pulse-brand hover:animate-none w-full sm:w-auto"
+          >
+            AGENDAR CONSULTORIA
+          </ScheduleButton>
+        </div>
 
-          <div className="mt-8 animate-float-up md:mt-10">
-            <h1 className="text-3xl font-bold leading-[1.08] sm:text-4xl md:text-6xl">
-              Atraia mais clientes e aumente suas vendas{" "}
-              <span className="text-gradient-brand">com tráfego pago que realmente funciona.</span>
-            </h1>
-            <p className="mt-5 max-w-3xl text-base text-muted-foreground md:text-lg">
-              Planejamento, gestão e otimização de campanhas para gerar{" "}
-              <strong className="font-semibold text-foreground">mais leads, mais vendas</strong> e{" "}
-              <strong className="font-semibold text-foreground">maior retorno</strong> sobre o investimento.
-            </p>
+        <picture>
+          <source media="(min-width: 768px)" srcSet={bannerDesktop.url} />
+          <img
+            src={bannerMobile.url}
+            alt="Agência Rocha — especialistas em Google Ads, Meta Ads e YouTube Ads"
+            width={1717}
+            height={919}
+            className="w-full rounded-3xl border border-border/60 shadow-glow"
+          />
+        </picture>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <WhatsAppButton
-                subtitle="Atendimento rápido"
-                className="animate-pulse-whatsapp hover:animate-none w-full sm:w-auto"
-              >
-                FALAR NO WHATSAPP
-              </WhatsAppButton>
-              <ScheduleButton
-                subtitle="Gratuita e sem compromisso"
-                className="animate-pulse-brand hover:animate-none w-full sm:w-auto"
-              >
-                AGENDAR CONSULTORIA
-              </ScheduleButton>
-            </div>
+        <div className="mt-8 animate-float-up md:mt-10">
+          <h1 className="text-3xl font-bold leading-[1.08] sm:text-4xl md:text-6xl">
+            Atraia mais clientes e aumente suas vendas{" "}
+            <span className="text-gradient-brand">com tráfego pago que realmente funciona.</span>
+          </h1>
+          <p className="mt-5 max-w-3xl text-base text-muted-foreground md:text-lg">
+            Planejamento, gestão e otimização de campanhas para gerar{" "}
+            <strong className="font-semibold text-foreground">mais leads, mais vendas</strong> e{" "}
+            <strong className="font-semibold text-foreground">maior retorno</strong> sobre o investimento.
+          </p>
 
             <ul className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
               {pillars.map((p) => (
