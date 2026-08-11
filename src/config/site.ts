@@ -6,13 +6,13 @@ export const site = {
   name: "Agência Rocha",
   tagline: "Tráfego • Estratégia • Resultados",
   /** Número no formato internacional, apenas dígitos. Ex: 5511999999999 */
-  whatsappNumber: "",
+  whatsappNumber: "5571992641675",
   whatsappMessage:
     "Olá! Quero conhecer as estratégias de tráfego pago da Agência Rocha.",
-  /** Cole aqui o link do Calendly (ex: https://calendly.com/sua-conta/consultoria) */
-  calendlyUrl: "https://calendly.com/",
+  /** Cole aqui o link do Calendly */
+  calendlyUrl: "https://calendly.com/agenciarocha/45min",
   /** Perfil do Instagram */
-  instagramUrl: "https://instagram.com/",
+  instagramUrl: "https://www.instagram.com/renatorochapro/",
 } as const;
 
 export const whatsappUrl = site.whatsappNumber
