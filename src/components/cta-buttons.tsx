@@ -46,10 +46,12 @@ export function WhatsAppButton({
 
 export function ScheduleButton({
   children = "Agendar consultoria gratuita",
+  subtitle,
   size = "lg",
   className,
 }: {
   children?: React.ReactNode;
+  subtitle?: React.ReactNode;
   size?: Size;
   className?: string;
 }) {
@@ -66,7 +68,10 @@ export function ScheduleButton({
       )}
     >
       <CalendarCheck className="h-5 w-5 shrink-0" />
-      <span>{children}</span>
+      <span className={cn("flex flex-col items-start", subtitle && "leading-tight")}>
+        <span>{children}</span>
+        {subtitle && <span className="text-xs font-normal opacity-90">{subtitle}</span>}
+      </span>
       <ArrowRight className="hidden h-4 w-4 shrink-0 sm:block" />
     </a>
   );
