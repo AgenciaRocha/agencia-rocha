@@ -227,8 +227,18 @@ function Landing() {
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <WhatsAppButton className="animate-pulse-whatsapp hover:animate-none w-full sm:w-auto" />
-              <ScheduleButton className="animate-pulse-brand hover:animate-none w-full sm:w-auto" />
+              <WhatsAppButton
+                subtitle="Atendimento rápido"
+                className="animate-pulse-whatsapp hover:animate-none w-full sm:w-auto"
+              >
+                FALAR NO WHATSAPP
+              </WhatsAppButton>
+              <ScheduleButton
+                subtitle="Gratuita e sem compromisso"
+                className="animate-pulse-brand hover:animate-none w-full sm:w-auto"
+              >
+                AGENDAR CONSULTORIA
+              </ScheduleButton>
             </div>
 
             <ul className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
