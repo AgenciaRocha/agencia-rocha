@@ -229,7 +229,6 @@ function Landing() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <ScheduleButton className="w-full sm:w-auto" />
               <WhatsAppButton className="w-full sm:w-auto" />
-              <GhostButton href="#servicos" className="w-full sm:w-auto">Ver serviços</GhostButton>
             </div>
 
             <ul className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
