@@ -19,7 +19,7 @@ import logoAgr from "@/assets/logo-agr.jpg.asset.json";
 import bannerDesktop from "@/assets/banner-desktop.png.asset.json";
 import bannerMobile from "@/assets/banner-mobile.png.asset.json";
 import { site } from "@/config/site";
-import { WhatsAppButton, ScheduleButton, GhostButton } from "@/components/cta-buttons";
+import { WhatsAppButton, ScheduleButton } from "@/components/cta-buttons";
 import { InstagramLink } from "@/components/instagram-link";
 
 const TITLE = "Agência Rocha — Tráfego Pago, Google Ads e Meta Ads que Vendem";
@@ -227,9 +227,18 @@ function Landing() {
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <ScheduleButton className="w-full sm:w-auto" />
-              <WhatsAppButton className="w-full sm:w-auto" />
-              <GhostButton href="#servicos" className="w-full sm:w-auto">Ver serviços</GhostButton>
+              <WhatsAppButton
+                subtitle="Atendimento rápido"
+                className="animate-pulse-whatsapp hover:animate-none w-full sm:w-auto"
+              >
+                FALAR NO WHATSAPP
+              </WhatsAppButton>
+              <ScheduleButton
+                subtitle="Gratuita e sem compromisso"
+                className="animate-pulse-brand hover:animate-none w-full sm:w-auto"
+              >
+                AGENDAR CONSULTORIA
+              </ScheduleButton>
             </div>
 
             <ul className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
