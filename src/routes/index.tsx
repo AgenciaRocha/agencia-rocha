@@ -19,7 +19,7 @@ import logoAgr from "@/assets/logo-agr.jpg.asset.json";
 import bannerDesktop from "@/assets/banner-desktop.png.asset.json";
 import bannerMobile from "@/assets/banner-mobile.png.asset.json";
 import { site } from "@/config/site";
-import { WhatsAppButton, ScheduleButton, GhostButton } from "@/components/cta-buttons";
+import { WhatsAppButton, ScheduleButton } from "@/components/cta-buttons";
 import { InstagramLink } from "@/components/instagram-link";
 
 const TITLE = "Agência Rocha — Tráfego Pago, Google Ads e Meta Ads que Vendem";
