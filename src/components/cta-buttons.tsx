@@ -14,10 +14,12 @@ type Size = keyof typeof sizes;
 
 export function WhatsAppButton({
   children = "Falar no WhatsApp",
+  subtitle,
   size = "lg",
   className,
 }: {
   children?: React.ReactNode;
+  subtitle?: React.ReactNode;
   size?: Size;
   className?: string;
 }) {
@@ -34,7 +36,10 @@ export function WhatsAppButton({
       )}
     >
       <MessageCircle className="h-5 w-5 shrink-0" />
-      <span>{children}</span>
+      <span className={cn("flex flex-col items-start", subtitle && "leading-tight")}>
+        <span>{children}</span>
+        {subtitle && <span className="text-xs font-normal opacity-90">{subtitle}</span>}
+      </span>
     </a>
   );
 }
