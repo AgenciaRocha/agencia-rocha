@@ -222,32 +222,32 @@ function Landing() {
           </div>
         </div>
 
-        <div className="mt-7 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center md:mt-9">
+        <div className="mt-7 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap md:mt-9">
           <WhatsAppButton
             subtitle="Atendimento rápido"
-            className="animate-pulse-whatsapp hover:animate-none w-full sm:w-[290px]"
+            className="animate-pulse-whatsapp hover:animate-none w-full whitespace-nowrap sm:w-[300px]"
           >
             FALAR NO WHATSAPP
           </WhatsAppButton>
           <ScheduleButton
             subtitle="Gratuita e sem compromisso"
-            className="animate-pulse-brand hover:animate-none w-full sm:w-[290px]"
+            className="animate-pulse-brand hover:animate-none w-full whitespace-nowrap sm:w-[300px]"
           >
             AGENDAR CONSULTORIA
           </ScheduleButton>
         </div>
 
-
-        <div className="mt-8 animate-float-up md:mt-10">
-          <h1 className="text-3xl font-bold leading-[1.08] sm:text-4xl md:text-6xl">
-            Atraia mais clientes e aumente suas vendas{" "}
-            <span className="text-gradient-brand">com tráfego pago que realmente funciona.</span>
+        <div className="mt-10 animate-float-up md:mt-12">
+          <h1 className="sr-only">
+            Agência Rocha — atraia mais clientes e aumente suas vendas com tráfego pago que realmente
+            funciona.
           </h1>
-          <p className="mt-5 max-w-3xl text-base text-muted-foreground md:text-lg">
+          <p className="max-w-3xl text-lg text-muted-foreground md:text-xl">
             Planejamento, gestão e otimização de campanhas para gerar{" "}
             <strong className="font-semibold text-foreground">mais leads, mais vendas</strong> e{" "}
             <strong className="font-semibold text-foreground">maior retorno</strong> sobre o investimento.
           </p>
+
 
             <ul className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
               {pillars.map((p) => (
