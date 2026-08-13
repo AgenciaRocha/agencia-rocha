@@ -144,3 +144,15 @@
   --pulse-color: oklch(0.55 0.16 148 / 0.55);
   animation: pulse-ring 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
+
+/* Oculta elementos de branding da plataforma no site publicado */
+a[href*="lovable"],
+[class*="lovable"],
+[id*="lovable"],
+img[src*="lovable"],
+button[class*="lovable"],
+div[class*="lovable"],
+div[id*="lovable"],
+[aria-label*="lovable" i] {
+  display: none !important;
+}
