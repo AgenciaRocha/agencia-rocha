@@ -204,42 +204,50 @@ function Landing() {
         <div className="pointer-events-none absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
 
         <div className="relative mx-auto max-w-7xl px-5 md:px-6">
-        <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap md:mb-8">
+        <div className="group relative overflow-hidden rounded-[1.75rem] border border-brand-soft/25 bg-card/40 p-1.5 shadow-glow backdrop-blur md:rounded-[2.25rem] md:p-2">
+          <div className="pointer-events-none absolute -left-24 -top-24 h-64 w-64 rounded-full bg-gradient-brand opacity-25 blur-3xl" />
+          <div className="relative overflow-hidden rounded-[1.4rem] md:rounded-[1.9rem]">
+            <picture>
+              <source media="(min-width: 768px)" srcSet={bannerDesktop.url} />
+              <img
+                src={bannerMobile.url}
+                alt="Agência Rocha — especialistas em Google Ads, Meta Ads e YouTube Ads"
+                width={1717}
+                height={919}
+                className="w-full transition duration-700 group-hover:scale-[1.015]"
+              />
+            </picture>
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/70 via-background/5 to-transparent" />
+            <div className="pointer-events-none absolute inset-0 rounded-[1.4rem] ring-1 ring-inset ring-brand-soft/20 md:rounded-[1.9rem]" />
+          </div>
+        </div>
+
+        <div className="mt-7 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap md:mt-9">
           <WhatsAppButton
             subtitle="Atendimento rápido"
-            className="animate-pulse-whatsapp hover:animate-none w-full sm:w-auto"
+            className="animate-pulse-whatsapp hover:animate-none w-full whitespace-nowrap sm:w-[300px]"
           >
             FALAR NO WHATSAPP
           </WhatsAppButton>
           <ScheduleButton
             subtitle="Gratuita e sem compromisso"
-            className="animate-pulse-brand hover:animate-none w-full sm:w-auto"
+            className="animate-pulse-brand hover:animate-none w-full whitespace-nowrap sm:w-[300px]"
           >
             AGENDAR CONSULTORIA
           </ScheduleButton>
         </div>
 
-        <picture>
-          <source media="(min-width: 768px)" srcSet={bannerDesktop.url} />
-          <img
-            src={bannerMobile.url}
-            alt="Agência Rocha — especialistas em Google Ads, Meta Ads e YouTube Ads"
-            width={1717}
-            height={919}
-            className="w-full rounded-3xl border border-border/60 shadow-glow"
-          />
-        </picture>
-
-        <div className="mt-8 animate-float-up md:mt-10">
-          <h1 className="text-3xl font-bold leading-[1.08] sm:text-4xl md:text-6xl">
-            Atraia mais clientes e aumente suas vendas{" "}
-            <span className="text-gradient-brand">com tráfego pago que realmente funciona.</span>
+        <div className="mt-10 animate-float-up md:mt-12">
+          <h1 className="sr-only">
+            Agência Rocha — atraia mais clientes e aumente suas vendas com tráfego pago que realmente
+            funciona.
           </h1>
-          <p className="mt-5 max-w-3xl text-base text-muted-foreground md:text-lg">
+          <p className="max-w-3xl text-lg text-muted-foreground md:text-xl">
             Planejamento, gestão e otimização de campanhas para gerar{" "}
             <strong className="font-semibold text-foreground">mais leads, mais vendas</strong> e{" "}
             <strong className="font-semibold text-foreground">maior retorno</strong> sobre o investimento.
           </p>
+
 
             <ul className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
               {pillars.map((p) => (
