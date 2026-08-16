@@ -274,7 +274,8 @@ function Landing() {
             </div>
 
             {/* Coluna do profissional */}
-            <div className="pointer-events-none relative mt-8 h-[340px] sm:h-[440px] lg:mt-0 lg:h-[600px]">
+            <div className="pointer-events-none absolute right-[-6%] top-2 z-0 h-[300px] w-[52%] sm:h-[420px] lg:static lg:mt-0 lg:h-[600px] lg:w-auto">
+
               <div className="absolute bottom-0 right-0 h-[70%] w-[70%] rounded-full bg-brand/30 blur-[90px]" />
               <TrendingUp
                 className="absolute right-2 top-4 h-24 w-24 text-brand-soft/60 lg:h-36 lg:w-36"
