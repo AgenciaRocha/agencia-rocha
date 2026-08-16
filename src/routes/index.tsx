@@ -13,11 +13,17 @@ import {
   Users,
   Rocket,
   LineChart,
+  CalendarCheck,
+  TrendingUp,
+  Search,
+  Youtube,
+  Tag,
+  PieChart,
 } from "lucide-react";
 
 import logoAgr from "@/assets/logo-agr.jpg.asset.json";
 import bannerDesktop from "@/assets/banner-desktop.png.asset.json";
-import bannerMobile from "@/assets/banner-mobile.png.asset.json";
+import especialista from "@/assets/especialista-agr.png.asset.json";
 import { site } from "@/config/site";
 import { WhatsAppButton, ScheduleButton } from "@/components/cta-buttons";
 import { InstagramLink } from "@/components/instagram-link";
@@ -63,7 +69,13 @@ const pillars = [
   { icon: Rocket, label: "Otimização contínua" },
 ];
 
-const platforms = ["Google Ads", "Meta Ads", "YouTube Ads", "Google Analytics 4", "Google Tag Manager"];
+const platformItems = [
+  { icon: Search, label: "Google Ads" },
+  { icon: Megaphone, label: "Meta Ads" },
+  { icon: Youtube, label: "YouTube Ads" },
+  { icon: PieChart, label: "GA4" },
+  { icon: Tag, label: "GTM" },
+];
 
 const services = [
   {
