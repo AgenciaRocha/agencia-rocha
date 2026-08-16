@@ -370,7 +370,7 @@ function Landing() {
           </div>
 
           <div className="mt-12 flex flex-col gap-3 sm:flex-row">
-            <ScheduleButton>Quero uma estratégia para meu negócio</ScheduleButton>
+            <ScheduleButton>Quero minha estratégia</ScheduleButton>
             <WhatsAppButton size="md">Tirar dúvidas no WhatsApp</WhatsAppButton>
           </div>
         </div>
@@ -419,7 +419,7 @@ function Landing() {
                 controle da operação e equipe focada no que gera receita.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <WhatsAppButton>Quero automatizar meu WhatsApp</WhatsAppButton>
+                <WhatsAppButton>Automatizar WhatsApp</WhatsAppButton>
                 <ScheduleButton size="md">Agendar demonstração</ScheduleButton>
               </div>
             </div>
