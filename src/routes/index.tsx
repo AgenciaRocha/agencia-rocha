@@ -228,20 +228,18 @@ function Landing() {
         <div className="relative mx-auto max-w-7xl px-5 md:px-6">
           <div className="relative grid items-end gap-0 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)]">
             {/* Coluna de texto */}
-            <div className="relative z-10 animate-float-up pt-6 md:pt-10">
-              <h1 className="font-impact text-[13vw] uppercase leading-[0.92] tracking-tight sm:text-6xl lg:text-[4.6rem]">
-                Atraia mais
-                <br />
-                clientes e
-                <br />
-                aumente suas
-                <br />
-                <span className="text-brand-soft">vendas.</span>
+            <div className="relative z-10 animate-float-up pt-4 md:pt-10">
+              <h1 className="font-impact text-[10.2vw] uppercase leading-[0.95] tracking-tight sm:text-6xl lg:text-[4.6rem]">
+                <span className="block whitespace-nowrap">Atraia mais</span>
+                <span className="block whitespace-nowrap">clientes e</span>
+                <span className="block whitespace-nowrap">aumente suas</span>
+                <span className="block whitespace-nowrap text-brand-soft">vendas.</span>
               </h1>
 
-              <p className="mt-6 max-w-md text-base leading-relaxed text-foreground/85 md:text-lg">
+              <p className="mt-5 max-w-[60%] text-sm leading-relaxed text-foreground/85 sm:max-w-md sm:text-base md:text-lg">
                 Estratégias de tráfego pago que atraem leads qualificados e aumentam suas vendas.
               </p>
+
 
               <div className="mt-6 h-px w-40 bg-gradient-to-r from-brand-soft/80 to-transparent" />
 
