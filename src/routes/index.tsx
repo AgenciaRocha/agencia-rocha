@@ -8,16 +8,20 @@ import {
   PenLine,
   Bot,
   Check,
-  ShieldCheck,
   Target,
   Users,
   Rocket,
   LineChart,
+  CalendarCheck,
+  TrendingUp,
+  Search,
+  Youtube,
+  Tag,
+  PieChart,
 } from "lucide-react";
 
 import logoAgr from "@/assets/logo-agr.jpg.asset.json";
-import bannerDesktop from "@/assets/banner-desktop.png.asset.json";
-import bannerMobile from "@/assets/banner-mobile.png.asset.json";
+import especialista from "@/assets/especialista-agr.png.asset.json";
 import { site } from "@/config/site";
 import { WhatsAppButton, ScheduleButton } from "@/components/cta-buttons";
 import { InstagramLink } from "@/components/instagram-link";
@@ -63,7 +67,13 @@ const pillars = [
   { icon: Rocket, label: "Otimização contínua" },
 ];
 
-const platforms = ["Google Ads", "Meta Ads", "YouTube Ads", "Google Analytics 4", "Google Tag Manager"];
+const platformItems = [
+  { icon: Search, label: "Google Ads" },
+  { icon: Megaphone, label: "Meta Ads" },
+  { icon: Youtube, label: "YouTube Ads" },
+  { icon: PieChart, label: "GA4" },
+  { icon: Tag, label: "GTM" },
+];
 
 const services = [
   {
@@ -192,7 +202,7 @@ function Landing() {
               <a href="#faq" className="transition hover:text-foreground">Dúvidas</a>
             </nav>
             <InstagramLink className="px-2.5" />
-            <ScheduleButton size="md" className="hidden sm:inline-flex">
+            <ScheduleButton size="md" className="hidden sm:inline-flex sm:w-auto">
               Agendar
             </ScheduleButton>
           </div>
@@ -200,79 +210,122 @@ function Landing() {
       </header>
 
       {/* Hero */}
-      <section id="top" className="relative overflow-hidden pt-24 md:pt-28">
+      <section id="top" className="relative overflow-hidden pt-20 md:pt-24">
+        {/* Fundo azul-marinho com glow */}
         <div className="pointer-events-none absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
+        <div className="pointer-events-none absolute right-[-10%] top-[10%] h-[420px] w-[420px] rounded-full bg-brand/25 blur-[120px]" />
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.18]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, var(--brand-soft) 1px, transparent 1px)",
+            backgroundSize: "26px 26px",
+            maskImage: "radial-gradient(ellipse at 70% 40%, black, transparent 70%)",
+            WebkitMaskImage: "radial-gradient(ellipse at 70% 40%, black, transparent 70%)",
+          }}
+        />
 
         <div className="relative mx-auto max-w-7xl px-5 md:px-6">
-        <div className="group relative overflow-hidden rounded-[1.75rem] border border-brand-soft/25 bg-card/40 p-1.5 shadow-glow backdrop-blur md:rounded-[2.25rem] md:p-2">
-          <div className="pointer-events-none absolute -left-24 -top-24 h-64 w-64 rounded-full bg-gradient-brand opacity-25 blur-3xl" />
-          <div className="relative overflow-hidden rounded-[1.4rem] md:rounded-[1.9rem]">
-            <picture>
-              <source media="(min-width: 768px)" srcSet={bannerDesktop.url} />
-              <img
-                src={bannerMobile.url}
-                alt="Agência Rocha — especialistas em Google Ads, Meta Ads e YouTube Ads"
-                width={1717}
-                height={919}
-                className="w-full transition duration-700 group-hover:scale-[1.015]"
-              />
-            </picture>
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/70 via-background/5 to-transparent" />
-            <div className="pointer-events-none absolute inset-0 rounded-[1.4rem] ring-1 ring-inset ring-brand-soft/20 md:rounded-[1.9rem]" />
-          </div>
-        </div>
+          <div className="relative grid items-end gap-0 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)]">
+            {/* Coluna de texto */}
+            <div className="relative z-10 animate-float-up pt-4 md:pt-10">
+              <h1 className="font-impact text-[9.6vw] uppercase leading-[0.95] tracking-tight sm:text-6xl lg:text-[4.6rem]">
+                <span className="block whitespace-nowrap">Atraia mais</span>
+                <span className="block whitespace-nowrap">clientes e</span>
+                <span className="block whitespace-nowrap">aumente suas</span>
+                <span className="block whitespace-nowrap text-brand-soft">vendas.</span>
+              </h1>
 
-        <div className="mt-7 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap md:mt-9">
-          <WhatsAppButton
-            subtitle="Atendimento rápido"
-            className="animate-pulse-whatsapp hover:animate-none w-full whitespace-nowrap sm:w-[300px]"
-          >
-            FALAR NO WHATSAPP
-          </WhatsAppButton>
-          <ScheduleButton
-            subtitle="Gratuita e sem compromisso"
-            className="animate-pulse-brand hover:animate-none w-full whitespace-nowrap sm:w-[300px]"
-          >
-            AGENDAR CONSULTORIA
-          </ScheduleButton>
-        </div>
-
-        <div className="mt-10 animate-float-up md:mt-12">
-          <h1 className="sr-only">
-            Agência Rocha — atraia mais clientes e aumente suas vendas com tráfego pago que realmente
-            funciona.
-          </h1>
-          <p className="max-w-3xl text-lg text-muted-foreground md:text-xl">
-            Planejamento, gestão e otimização de campanhas para gerar{" "}
-            <strong className="font-semibold text-foreground">mais leads, mais vendas</strong> e{" "}
-            <strong className="font-semibold text-foreground">maior retorno</strong> sobre o investimento.
-          </p>
+              <p className="mt-5 max-w-[60%] text-sm leading-relaxed text-foreground/85 sm:max-w-md sm:text-base md:text-lg">
+                Estratégias de tráfego pago que atraem leads qualificados e aumentam suas vendas.
+              </p>
 
 
-            <ul className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
-              {pillars.map((p) => (
-                <li
-                  key={p.label}
-                  className="flex items-start gap-3 rounded-2xl border border-border/60 bg-card/50 p-4 backdrop-blur"
+              <div className="mt-6 h-px w-40 bg-gradient-to-r from-brand-soft/80 to-transparent" />
+
+              {/* Bloco CTA consultoria */}
+              <div className="mt-7 flex items-start gap-4 rounded-2xl border border-brand-soft/35 bg-card/50 p-5 backdrop-blur">
+                <CalendarCheck className="mt-0.5 h-8 w-8 shrink-0 text-brand-soft" strokeWidth={1.6} />
+                <div className="min-w-0">
+                  <p className="font-display text-sm font-bold uppercase tracking-wide md:text-base">
+                    Faça sua <span className="text-brand-soft">consultoria gratuita.</span>
+                  </p>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                    Vamos analisar seu negócio e encontrar as melhores oportunidades.
+                  </p>
+                </div>
+              </div>
+
+              {/* CTAs funcionais */}
+              <div className="mt-6 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap">
+                <WhatsAppButton
+                  subtitle="Atendimento rápido"
+                  className="animate-pulse-whatsapp hover:animate-none"
                 >
-                  <p.icon className="h-5 w-5 shrink-0 text-brand-soft" />
-                  <span className="min-w-0 text-sm font-medium">{p.label}</span>
-                </li>
-              ))}
-            </ul>
+                  FALAR NO WHATSAPP
+                </WhatsAppButton>
+                <ScheduleButton
+                  subtitle="Gratuita e sem compromisso"
+                  className="animate-pulse-brand hover:animate-none"
+                >
+                  AGENDAR CONSULTORIA
+                </ScheduleButton>
+              </div>
+            </div>
 
-            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 rounded-2xl border border-border/50 bg-card/40 px-5 py-4 text-xs text-muted-foreground">
-              <span className="inline-flex items-center gap-2 font-semibold uppercase tracking-widest text-brand-soft">
-                <ShieldCheck className="h-4 w-4" />
-                Tecnologia e dados
-              </span>
-              {platforms.map((p) => (
-                <span key={p}>{p}</span>
-              ))}
+            {/* Coluna do profissional */}
+            <div className="pointer-events-none absolute right-[-10%] top-8 z-0 h-[290px] w-[54%] sm:h-[420px] lg:static lg:mt-0 lg:h-[600px] lg:w-auto">
+
+              <div className="absolute bottom-0 right-0 h-[70%] w-[70%] rounded-full bg-brand/30 blur-[90px]" />
+              <TrendingUp
+                className="absolute right-2 top-4 h-24 w-24 text-brand-soft/60 lg:h-36 lg:w-36"
+                strokeWidth={1.2}
+              />
+              <div className="absolute bottom-6 right-4 flex items-end gap-2 opacity-70">
+                {[28, 48, 72, 100].map((h) => (
+                  <span
+                    key={h}
+                    className="w-4 rounded-t-sm bg-gradient-brand lg:w-6"
+                    style={{ height: `${h}px` }}
+                  />
+                ))}
+              </div>
+              <img
+                src={especialista.url}
+                alt="Especialista em tráfego pago da Agência Rocha"
+                width={476}
+                height={800}
+                className="absolute bottom-0 right-0 h-full w-auto max-w-none object-contain object-bottom drop-shadow-[0_25px_60px_oklch(0.16_0.045_264/0.9)]"
+              />
             </div>
           </div>
+
+          {/* Faixa de plataformas */}
+          <div className="relative z-10 mt-8 grid grid-cols-3 divide-x divide-border/50 rounded-2xl border border-border/50 bg-card/40 py-4 backdrop-blur sm:grid-cols-5 md:mt-10">
+            {platformItems.map((p) => (
+              <div key={p.label} className="flex flex-col items-center gap-2 px-2 py-2">
+                <p.icon className="h-6 w-6 text-brand-soft" strokeWidth={1.6} />
+                <span className="text-center text-[11px] font-medium text-muted-foreground md:text-sm">
+                  {p.label}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <ul className="relative z-10 mt-5 grid grid-cols-2 gap-4 md:grid-cols-4">
+            {pillars.map((p) => (
+              <li
+                key={p.label}
+                className="flex items-start gap-3 rounded-2xl border border-border/60 bg-card/50 p-4 backdrop-blur"
+              >
+                <p.icon className="h-5 w-5 shrink-0 text-brand-soft" />
+                <span className="min-w-0 text-sm font-medium">{p.label}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
+
 
       {/* Services */}
       <section id="servicos" className="py-20 md:py-28">
@@ -317,8 +370,8 @@ function Landing() {
           </div>
 
           <div className="mt-12 flex flex-col gap-3 sm:flex-row">
-            <ScheduleButton className="w-full sm:w-auto">Quero uma estratégia para meu negócio</ScheduleButton>
-            <WhatsAppButton size="md" className="w-full sm:w-auto">Tirar dúvidas no WhatsApp</WhatsAppButton>
+            <ScheduleButton>Quero minha estratégia</ScheduleButton>
+            <WhatsAppButton size="md">Tirar dúvidas no WhatsApp</WhatsAppButton>
           </div>
         </div>
       </section>
@@ -366,8 +419,8 @@ function Landing() {
                 controle da operação e equipe focada no que gera receita.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <WhatsAppButton className="w-full sm:w-auto">Quero automatizar meu WhatsApp</WhatsAppButton>
-                <ScheduleButton size="md" className="w-full sm:w-auto">Agendar demonstração</ScheduleButton>
+                <WhatsAppButton>Automatizar WhatsApp</WhatsAppButton>
+                <ScheduleButton size="md">Agendar demonstração</ScheduleButton>
               </div>
             </div>
 
@@ -424,8 +477,8 @@ function Landing() {
                 Sem enrolação — só o que vai gerar resultado.
               </p>
               <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                <ScheduleButton className="w-full sm:w-auto" />
-                <WhatsAppButton className="w-full sm:w-auto" />
+                <ScheduleButton />
+                <WhatsAppButton />
               </div>
             </div>
           </div>
