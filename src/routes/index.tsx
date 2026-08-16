@@ -202,7 +202,7 @@ function Landing() {
               <a href="#faq" className="transition hover:text-foreground">Dúvidas</a>
             </nav>
             <InstagramLink className="px-2.5" />
-            <ScheduleButton size="md" className="hidden sm:inline-flex">
+            <ScheduleButton size="md" className="hidden sm:inline-flex sm:w-auto">
               Agendar
             </ScheduleButton>
           </div>
@@ -370,8 +370,8 @@ function Landing() {
           </div>
 
           <div className="mt-12 flex flex-col gap-3 sm:flex-row">
-            <ScheduleButton className="w-full sm:w-auto">Quero uma estratégia para meu negócio</ScheduleButton>
-            <WhatsAppButton size="md" className="w-full sm:w-auto">Tirar dúvidas no WhatsApp</WhatsAppButton>
+            <ScheduleButton>Quero uma estratégia para meu negócio</ScheduleButton>
+            <WhatsAppButton size="md">Tirar dúvidas no WhatsApp</WhatsAppButton>
           </div>
         </div>
       </section>
@@ -419,8 +419,8 @@ function Landing() {
                 controle da operação e equipe focada no que gera receita.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <WhatsAppButton className="w-full sm:w-auto">Quero automatizar meu WhatsApp</WhatsAppButton>
-                <ScheduleButton size="md" className="w-full sm:w-auto">Agendar demonstração</ScheduleButton>
+                <WhatsAppButton>Quero automatizar meu WhatsApp</WhatsAppButton>
+                <ScheduleButton size="md">Agendar demonstração</ScheduleButton>
               </div>
             </div>
 
@@ -477,8 +477,8 @@ function Landing() {
                 Sem enrolação — só o que vai gerar resultado.
               </p>
               <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                <ScheduleButton className="w-full sm:w-auto" />
-                <WhatsAppButton className="w-full sm:w-auto" />
+                <ScheduleButton />
+                <WhatsAppButton />
               </div>
             </div>
           </div>
