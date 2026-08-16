@@ -229,7 +229,7 @@ function Landing() {
           <div className="relative grid items-end gap-0 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)]">
             {/* Coluna de texto */}
             <div className="relative z-10 animate-float-up pt-4 md:pt-10">
-              <h1 className="font-impact text-[10.2vw] uppercase leading-[0.95] tracking-tight sm:text-6xl lg:text-[4.6rem]">
+              <h1 className="font-impact text-[9.6vw] uppercase leading-[0.95] tracking-tight sm:text-6xl lg:text-[4.6rem]">
                 <span className="block whitespace-nowrap">Atraia mais</span>
                 <span className="block whitespace-nowrap">clientes e</span>
                 <span className="block whitespace-nowrap">aumente suas</span>
@@ -274,7 +274,7 @@ function Landing() {
             </div>
 
             {/* Coluna do profissional */}
-            <div className="pointer-events-none absolute right-[-6%] top-2 z-0 h-[300px] w-[52%] sm:h-[420px] lg:static lg:mt-0 lg:h-[600px] lg:w-auto">
+            <div className="pointer-events-none absolute right-[-10%] top-8 z-0 h-[290px] w-[54%] sm:h-[420px] lg:static lg:mt-0 lg:h-[600px] lg:w-auto">
 
               <div className="absolute bottom-0 right-0 h-[70%] w-[70%] rounded-full bg-brand/30 blur-[90px]" />
               <TrendingUp
@@ -294,7 +294,7 @@ function Landing() {
                 src={especialista.url}
                 alt="Especialista em tráfego pago da Agência Rocha"
                 width={476}
-                height={1290}
+                height={800}
                 className="absolute bottom-0 right-0 h-full w-auto max-w-none object-contain object-bottom drop-shadow-[0_25px_60px_oklch(0.16_0.045_264/0.9)]"
               />
             </div>
