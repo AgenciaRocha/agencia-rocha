@@ -8,7 +8,6 @@ import {
   PenLine,
   Bot,
   Check,
-  ShieldCheck,
   Target,
   Users,
   Rocket,
@@ -22,7 +21,6 @@ import {
 } from "lucide-react";
 
 import logoAgr from "@/assets/logo-agr.jpg.asset.json";
-import bannerDesktop from "@/assets/banner-desktop.png.asset.json";
 import especialista from "@/assets/especialista-agr.png.asset.json";
 import { site } from "@/config/site";
 import { WhatsAppButton, ScheduleButton } from "@/components/cta-buttons";
