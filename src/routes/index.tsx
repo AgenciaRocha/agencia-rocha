@@ -228,7 +228,7 @@ function Landing() {
         <div className="relative mx-auto max-w-7xl px-5 md:px-6">
           <div className="relative grid items-end gap-0 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)]">
             {/* Coluna de texto */}
-            <div className="relative z-10 animate-float-up pt-4 md:pt-10">
+            <div className="relative z-10 order-2 animate-float-up pt-4 md:pt-10 lg:order-1">
               <h1 className="font-impact text-[9.6vw] uppercase leading-[0.95] tracking-tight sm:text-6xl lg:text-[4.6rem]">
                 <span className="block whitespace-nowrap">Atraia mais</span>
                 <span className="block whitespace-nowrap">clientes e</span>
@@ -236,7 +236,7 @@ function Landing() {
                 <span className="block whitespace-nowrap text-brand-soft">vendas.</span>
               </h1>
 
-              <p className="mt-5 max-w-[60%] text-sm leading-relaxed text-foreground/85 sm:max-w-md sm:text-base md:text-lg">
+              <p className="mt-5 max-w-md text-sm leading-relaxed text-foreground/85 sm:text-base md:text-lg">
                 Estratégias de tráfego pago que atraem leads qualificados e aumentam suas vendas.
               </p>
 
@@ -274,19 +274,18 @@ function Landing() {
             </div>
 
             {/* Coluna do profissional */}
-            <div className="pointer-events-none absolute right-[-10%] top-8 z-0 h-[290px] w-[54%] sm:h-[420px] lg:static lg:mt-0 lg:h-[600px] lg:w-auto">
-
-              <div className="absolute bottom-0 right-0 h-[70%] w-[70%] rounded-full bg-brand/30 blur-[90px]" />
+            <div className="pointer-events-none relative order-1 mx-auto h-[260px] w-full max-w-[300px] sm:h-[340px] sm:max-w-[380px] lg:order-2 lg:mx-0 lg:h-[560px] lg:w-full lg:max-w-none">
+              <div className="absolute bottom-4 left-1/2 h-[65%] w-[80%] -translate-x-1/2 rounded-full bg-brand/30 blur-[90px] lg:left-auto lg:right-0 lg:translate-x-0 lg:w-[70%]" />
               <TrendingUp
-                className="absolute right-2 top-4 h-24 w-24 text-brand-soft/60 lg:h-36 lg:w-36"
+                className="absolute right-0 top-2 h-20 w-20 text-brand-soft/50 lg:h-36 lg:w-36"
                 strokeWidth={1.2}
               />
-              <div className="absolute bottom-6 right-4 flex items-end gap-2 opacity-70">
+              <div className="absolute bottom-4 left-0 flex items-end gap-2 opacity-60 lg:bottom-6 lg:left-auto lg:right-4">
                 {[28, 48, 72, 100].map((h) => (
                   <span
                     key={h}
-                    className="w-4 rounded-t-sm bg-gradient-brand lg:w-6"
-                    style={{ height: `${h}px` }}
+                    className="w-3 rounded-t-sm bg-gradient-brand lg:w-6"
+                    style={{ height: `${h * 0.6}px` }}
                   />
                 ))}
               </div>
@@ -294,8 +293,8 @@ function Landing() {
                 src={especialista.url}
                 alt="Especialista em tráfego pago da Agência Rocha"
                 width={476}
-                height={800}
-                className="absolute bottom-0 right-0 h-full w-auto max-w-none object-contain object-bottom drop-shadow-[0_25px_60px_oklch(0.16_0.045_264/0.9)]"
+                height={640}
+                className="absolute bottom-0 left-1/2 h-full w-auto max-w-none -translate-x-1/2 object-contain object-bottom drop-shadow-[0_25px_60px_oklch(0.16_0.045_264/0.9)] lg:left-auto lg:right-0 lg:translate-x-0"
               />
             </div>
           </div>
