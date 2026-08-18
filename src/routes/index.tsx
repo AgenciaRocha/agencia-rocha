@@ -292,8 +292,8 @@ function Landing() {
               <img
                 src={especialista.url}
                 alt="Especialista em tráfego pago da Agência Rocha"
-                width={476}
-                height={640}
+                width={941}
+                height={772}
                 className="absolute bottom-0 left-1/2 h-full w-auto max-w-none -translate-x-1/2 object-contain object-bottom drop-shadow-[0_25px_60px_oklch(0.16_0.045_264/0.9)] lg:left-auto lg:right-0 lg:translate-x-0"
               />
             </div>
