@@ -1,7 +1,7 @@
 # Atualização isolada do Hero da página inicial
 
 ## Escopo
-Alterar somente o Hero em `src/routes/index.tsx`. O cabeçalho, todas as seções abaixo do Hero, rodapé, links, URLs, configurações e integrações existentes permanecerão intactos.
+Alterar somente o Hero em `src/routes/index.tsx` e instalar o Google Tag Manager solicitado. O cabeçalho, todas as seções abaixo do Hero, rodapé, links, URLs, configurações e demais integrações existentes permanecerão visualmente intactos.
 
 ## Implementação
 - Reconstruir a composição do Hero com fundo azul-marinho quase preto, gradiente azul profundo, grade sutil e glow radial concentrado atrás do profissional.
@@ -29,8 +29,18 @@ Alterar somente o Hero em `src/routes/index.tsx`. O cabeçalho, todas as seçõe
 - Manter o asset atual `especialista-agr.png.asset.json` exatamente como está.
 - Garantir dimensões estáveis, `overflow` controlado e linhas do título com `whitespace-nowrap`, ajustando tamanhos por breakpoint sem escala contínua por viewport.
 
+## Google Tag Manager e eventos
+- Adicionar o snippet oficial do contêiner `GTM-T5KZ9XP` ao `head()` da raiz para renderização no HTML inicial.
+- Adicionar o fallback `noscript` imediatamente após a abertura do `body`, sem impacto visual.
+- Instrumentar todos os links centralizados de WhatsApp e Calendly em `src/components/cta-buttons.tsx`:
+  - WhatsApp: evento exato `BT. Whatsapp`;
+  - agendamento: evento exato `clique_agendar`.
+- Manter os eventos específicos adicionais pedidos para os CTAs do Hero, incluindo `cta_local`, sem impedir a abertura normal em nova aba.
+- Não instalar Pixel da Meta ou GA4 diretamente no código.
+
 ## Verificação
 - Validar visualmente em 1280px (desktop), 768px (tablet), 390px e 360px (celular).
 - Confirmar: ausência de rolagem horizontal; título completo em quatro linhas; `VENDAS.` azul; foto nunca em corpo inteiro; foto acima do texto no mobile; nenhuma sobreposição; ambos os CTAs visíveis e funcionais; cinco plataformas sem corte.
 - Confirmar no navegador que os cliques adicionam os eventos corretos ao `dataLayer` e continuam abrindo os destinos existentes.
+- Confirmar no HTML inicial a presença do script e do fallback do GTM.
 - Não publicar.
